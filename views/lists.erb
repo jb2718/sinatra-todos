@@ -1,0 +1,17 @@
+<ul id="lists">
+	<% sort_lists(@lists).each do |sub_arr|%>
+		<li class="<%=list_class(sub_arr.first[:todos])%>">
+			<a href=<%="/lists/#{sub_arr.last}"%>>
+				<h2><%= sub_arr.first[:name] %></h2>
+				<p>
+					<%= count_remaining_todos(sub_arr.first[:todos]) %> /
+					<%= sub_arr.first[:todos].size %>		
+				</p>
+			</a>
+		</li>
+	<%end%>
+</ul>
+
+<% content_for :header_links do %>
+	<a class="add" href="/lists/new">New List</a>
+<% end %>
