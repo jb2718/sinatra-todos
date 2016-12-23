@@ -32,31 +32,14 @@ helpers do
     "complete" if all_todos_complete?(list)
   end
 
-  # def add_orig_index(list)
-  #   orig_index_addon = {}
-  #   orig_idx = 0
-  #   list.each do |key, _|
-  #     orig_index_addon[key] = orig_idx
-  #     orig_idx += 1
-  #   end
-  #   orig_index_addon
-  # end
 
   def sort_lists(lists)
-    # add_orig_index(lists).sort_by do |arr_item|
-    #   item = arr_item.first
-    #   all_todos_complete?(item[:todos]) ? 1 : 0
-    # end
     lists.sort_by do |item|
       all_todos_complete?(item[:todos]) ? 1 : 0
     end
   end
 
   def sort_todos(todos)
-    # add_orig_index(todos).sort_by do |arr_item|
-    #   item = arr_item.first
-    #   item[:completed] ? 1 : 0
-    # end
     todos.sort_by do |item|
       item[:completed] ? 1 : 0
     end
